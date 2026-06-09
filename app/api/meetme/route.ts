@@ -3,6 +3,7 @@ import { getSupabase } from "@/lib/supabase";
 import {
   generateEditToken,
   generateSlug,
+  getBaseUrl,
   normalizePhone,
 } from "@/lib/utils";
 import type { MeetMeCategory } from "@/lib/types";
@@ -106,8 +107,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: message }, { status: 500 });
   }
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ?? "";
+  const baseUrl = getBaseUrl(req);
   const share_url = `${baseUrl}/${inserted.slug}`;
   const edit_url = `${baseUrl}/edit/${inserted.edit_token}`;
 

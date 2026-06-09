@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabase } from "@/lib/supabase";
-import { normalizePhone } from "@/lib/utils";
+import { getBaseUrl, normalizePhone } from "@/lib/utils";
 import type { MeetMeCategory } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -127,8 +127,7 @@ export async function PUT(
     );
   }
 
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ?? "";
+  const baseUrl = getBaseUrl(req);
   const share_url = `${baseUrl}/${updated.slug}`;
 
   return NextResponse.json({
