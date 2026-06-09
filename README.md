@@ -2,6 +2,9 @@
 
 Mobile web app for shareable profile cards with WhatsApp conversation starters.
 
+My link: https://meet-me-murex.vercel.app/martin-a063
+My edit link: https://meet-me-murex.vercel.app/edit/6f8869ce75f9364f4faa46a4c7156b6e
+
 Live: https://meet-me-murex.vercel.app/create
 
 See [`docs/BUILD_LOG.md`](docs/BUILD_LOG.md) for the build journey,
