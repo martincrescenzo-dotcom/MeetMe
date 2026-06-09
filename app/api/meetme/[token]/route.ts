@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { normalizePhone } from "@/lib/utils";
 import type { MeetMeCategory } from "@/lib/types";
 
@@ -47,6 +47,8 @@ export async function PUT(
   if (!token) {
     return NextResponse.json({ error: "Missing token." }, { status: 400 });
   }
+
+  const supabase = getSupabase();
 
   const { data: existing, error: lookupError } = await supabase
     .from("meetme")

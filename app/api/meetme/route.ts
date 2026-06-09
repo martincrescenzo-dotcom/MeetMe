@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import {
   generateEditToken,
   generateSlug,
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
 
   for (let attempt = 0; attempt < 5; attempt++) {
     slug = generateSlug(name);
-    const { data, error } = await supabase
+    const { data, error } = await getSupabase()
       .from("meetme")
       .insert({
         slug,

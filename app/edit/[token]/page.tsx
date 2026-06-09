@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import MeetMeForm from "@/components/MeetMeForm";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import type { MeetMe } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ export default async function EditPage({
 }: {
   params: { token: string };
 }) {
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from("meetme")
     .select("*")
     .eq("edit_token", params.token)

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { buildWhatsAppURL } from "@/lib/utils";
 import type { MeetMe } from "@/lib/types";
 
@@ -11,7 +11,7 @@ export default async function ProfilePage({
 }: {
   params: { slug: string };
 }) {
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from("meetme")
     .select("*")
     .eq("slug", params.slug)
