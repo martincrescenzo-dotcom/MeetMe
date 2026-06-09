@@ -20,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="mx-auto w-full max-w-mobile px-5 py-8">{children}</main>
+        <main className="mx-auto w-full max-w-[420px] px-7 pt-[52px] pb-12">
+          {children}
+        </main>
       </body>
     </html>
   );

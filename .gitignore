@@ -7,3 +7,8 @@ build
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts
+
+# Design source
+*.zip
+design/.design-canvas.state.json
+design/.thumbnail
